@@ -149,7 +149,9 @@ body {
   width: max-content;
   animation: galleryScroll 42s linear infinite;
 }
-.gallery-track:hover { animation-play-state: paused; }
+@media (hover: hover) {
+  .gallery-track:hover { animation-play-state: paused; }
+}
 @keyframes galleryScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

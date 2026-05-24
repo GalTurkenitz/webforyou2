@@ -222,7 +222,7 @@ export default function Hero() {
 
             {/* Headline — clip-path per line */}
             <h1 style={{ fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.02, color: '#1A1714',
-              fontSize: 'clamp(46px,7.5vw,90px)' }}>
+              fontSize: 'clamp(34px,9.5vw,90px)' }}>
               {[
                 { text: 'אתר מקצועי',  delay: 0.1 },
                 { text: 'לעסק שלך —',  delay: 0.22 },

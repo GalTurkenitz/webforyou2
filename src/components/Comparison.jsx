@@ -112,7 +112,7 @@ export default function Comparison() {
           style={{ border: '1px solid rgba(201,168,76,0.1)', boxShadow: '0 4px 24px rgba(26,23,20,0.04)' }}>
 
           {/* Header row */}
-          <div className="grid grid-cols-3 px-6 py-3.5 text-[11px] uppercase tracking-widest font-bold"
+          <div className="grid grid-cols-3 px-3 sm:px-6 py-3 sm:py-3.5 text-[10px] sm:text-[11px] uppercase tracking-widest font-bold"
             style={{ background: '#F5F2EB', color: '#C4BDB4', borderBottom: '1px solid rgba(201,168,76,0.08)' }}>
             <span>שירות</span>
             <span className="text-center">מחיר</span>
@@ -121,12 +121,12 @@ export default function Comparison() {
 
           {rows.map((row, i) => (
             <div key={i}
-              className="table-row grid grid-cols-3 px-6 py-5 items-center"
+              className="table-row grid grid-cols-3 px-3 sm:px-6 py-3.5 sm:py-5 items-center"
               style={{
                 background: row.ok ? 'rgba(201,168,76,0.03)' : '#fff',
                 borderTop: '1px solid rgba(201,168,76,0.06)',
               }}>
-              <div className="flex items-center gap-2 font-semibold text-sm">
+              <div className="flex items-center gap-1.5 sm:gap-2 font-semibold text-xs sm:text-sm">
                 {row.ok && (
                   <span className="w-1.5 h-1.5 rounded-full animate-pulse shrink-0"
                     style={{ background: '#C9A84C' }} />
@@ -135,16 +135,16 @@ export default function Comparison() {
                   {row.service}
                 </span>
               </div>
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-1 sm:gap-2">
                 {row.ok ? <OkIcon /> : <NoIcon />}
-                <span className="text-sm font-medium"
+                <span className="text-xs sm:text-sm font-medium leading-tight text-center"
                   style={{ color: row.ok ? '#1A1714' : '#C4BDB4' }}>
                   {row.price}
                 </span>
               </div>
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-1 sm:gap-2">
                 {row.ok ? <OkIcon /> : <NoIcon />}
-                <span className="text-sm font-medium"
+                <span className="text-xs sm:text-sm font-medium"
                   style={{ color: row.ok ? '#1A1714' : '#C4BDB4' }}>
                   {row.time}
                 </span>
@@ -154,7 +154,7 @@ export default function Comparison() {
         </div>
 
         {/* Stats */}
-        <motion.div className="grid grid-cols-3 gap-6"
+        <motion.div className="grid grid-cols-3 gap-2 sm:gap-6"
           initial={{ opacity: 0, y: 36 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5, duration: 0.65, ease: EASE }}>
           <Stat value={50} suffix="+" label="אתרים שנבנו"    active={inView} delay={0} />
