@@ -36,7 +36,12 @@ export default function ContactForm() {
     e.preventDefault()
     if (!form.business || !form.phone) return
     setLoading(true)
-    setTimeout(() => { setLoading(false); setSent(true) }, 1600)
+    const msg = `פנייה חדשה מהאתר 🌐%0Aשם העסק: ${encodeURIComponent(form.business)}%0Aתחום: ${encodeURIComponent(form.category || 'לא צוין')}%0Aטלפון: ${encodeURIComponent(form.phone)}`
+    setTimeout(() => {
+      setLoading(false)
+      setSent(true)
+      window.open(`https://wa.me/972526599957?text=${msg}`, '_blank')
+    }, 1600)
   }
 
   return (
