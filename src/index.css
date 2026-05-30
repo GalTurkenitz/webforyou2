@@ -147,6 +147,8 @@ body {
 .gallery-track {
   display: flex; gap: 20px;
   width: max-content;
+  direction: ltr;
+  will-change: transform;
   animation: galleryScroll 42s linear infinite;
 }
 @media (hover: hover) {
@@ -161,6 +163,8 @@ body {
 .trust-track {
   display: flex; gap: 0;
   width: max-content;
+  direction: ltr;
+  will-change: transform;
   animation: marqueeScroll 30s linear infinite;
 }
 @keyframes marqueeScroll {

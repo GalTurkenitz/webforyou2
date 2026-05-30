@@ -27,6 +27,7 @@ export default function Marquee() {
   return (
     <div className="relative overflow-hidden py-5"
       style={{
+        direction: 'ltr',
         background: '#F5F2EB',
         borderTop: '1px solid rgba(201,168,76,0.1)',
         borderBottom: '1px solid rgba(201,168,76,0.1)',

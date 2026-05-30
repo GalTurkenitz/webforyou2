@@ -143,13 +143,44 @@ export default function Gallery() {
         </motion.div>
       </div>
 
-      {/* Carousel */}
-      <div className="relative overflow-hidden z-10">
+      {/* Mobile grid */}
+      <div className="md:hidden relative z-10 max-w-6xl mx-auto px-5 grid grid-cols-2 gap-4">
+        {projects.map((p, i) => (
+          <motion.a key={i} href={p.href} target="_blank" rel="noopener noreferrer"
+            className="relative rounded-2xl overflow-hidden block"
+            style={{ boxShadow: '0 8px 32px rgba(26,23,20,0.13)' }}
+            initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: i * 0.08 + 0.1, duration: 0.6, ease: EASE }}
+          >
+            <div className="flex items-center gap-1 px-2"
+              style={{ height: 22, background: 'rgba(245,242,235,0.96)', borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+              {['#E8685A','#F5BD4F','#61C554'].map((c, j) => (
+                <div key={j} style={{ width: 6, height: 6, borderRadius: '50%', background: c, opacity: 0.8 }} />
+              ))}
+            </div>
+            <div style={{ aspectRatio: '4/3', overflow: 'hidden' }}>
+              <img src={p.img} alt={p.name} className="w-full h-full object-cover object-top" loading="lazy" />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 h-14 pointer-events-none"
+              style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.82), transparent)' }} />
+            <div className="absolute bottom-2 right-2 left-2 flex items-end justify-between">
+              <span className="text-[11px] font-bold text-white">{p.name}</span>
+              <span className="text-[9px] px-1.5 py-0.5 rounded-full"
+                style={{ background: 'rgba(201,168,76,0.22)', color: '#E8C96D', border: '1px solid rgba(201,168,76,0.3)' }}>
+                {p.category}
+              </span>
+            </div>
+          </motion.a>
+        ))}
+      </div>
+
+      {/* Desktop carousel */}
+      <div className="hidden md:block relative overflow-hidden z-10" style={{ direction: 'ltr' }}>
         <div className="absolute right-0 top-0 bottom-0 w-28 pointer-events-none z-10"
           style={{ background: 'linear-gradient(to left,#EDE9DF,transparent)' }} />
         <div className="absolute left-0 top-0 bottom-0 w-28 pointer-events-none z-10"
           style={{ background: 'linear-gradient(to right,#EDE9DF,transparent)' }} />
-        <div className="gallery-track px-6">
+        <div className="gallery-track">
           {doubled.map((p, i) => <ProjectCard key={i} p={p} />)}
         </div>
       </div>

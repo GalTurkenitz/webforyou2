@@ -192,40 +192,10 @@ function PlanCard({ plan, index, inView }) {
             <path d="M19 12H5M12 5l-7 7 7 7" />
           </svg>
         </a>
-        <p className="text-center mt-3 mb-4 text-xs"
+        <p className="text-center mt-3 text-xs"
           style={{ color: plan.highlight ? 'rgba(255,255,255,0.38)' : '#C4BDB4' }}>
           ללא התחייבות · קבל אתר לדוגמה קודם
         </p>
-
-        {/* Pay now */}
-        <a href="#"
-          className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl text-sm font-semibold"
-          style={plan.highlight
-            ? { background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.82)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                transition: 'transform 160ms cubic-bezier(0.23,1,0.32,1), background 160ms' }
-            : { background: 'transparent', color: '#6B6457',
-                border: '1px solid rgba(201,168,76,0.2)',
-                transition: 'transform 160ms cubic-bezier(0.23,1,0.32,1), background 160ms' }
-          }
-          onMouseEnter={e => {
-            e.currentTarget.style.transform = 'scale(1.02)'
-            e.currentTarget.style.background = plan.highlight ? 'rgba(255,255,255,0.18)' : 'rgba(201,168,76,0.06)'
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.transform = 'scale(1)'
-            e.currentTarget.style.background = plan.highlight ? 'rgba(255,255,255,0.12)' : 'transparent'
-          }}
-          onMouseDown={e => e.currentTarget.style.transform = 'scale(0.97)'}
-          onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
-        >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-            <path d="M7 11V7a5 5 0 0110 0v4"/>
-          </svg>
-          שלם כאן
-          <span style={{ fontSize: 10, opacity: 0.6, fontWeight: 400 }}>· סליקה מאובטחת</span>
-        </a>
       </div>
     </motion.div>
   )
