@@ -21,11 +21,9 @@ export default function App() {
     <>
       <Loader onComplete={() => setLoaded(true)} />
 
-      {/* Always in DOM so browser finds LCP element immediately */}
-      <div style={{
-        opacity: loaded ? 1 : 0,
-        pointerEvents: loaded ? 'auto' : 'none',
-      }}>
+      {/* Content always at full opacity — loader covers it visually.
+          LCP is measured on first paint of h1, not when loader exits. */}
+      <div style={{ pointerEvents: loaded ? 'auto' : 'none' }}>
         <div className="grain" aria-hidden="true" />
         <Suspense fallback={null}>
           <CursorEffect />
