@@ -1,18 +1,17 @@
-import { useState, lazy, Suspense } from 'react'
+import { useState } from 'react'
 import Loader from './components/Loader'
+import CursorEffect from './components/CursorEffect'
+import ProgressBar from './components/ProgressBar'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-
-const CursorEffect   = lazy(() => import('./components/CursorEffect'))
-const ProgressBar    = lazy(() => import('./components/ProgressBar'))
-const Marquee        = lazy(() => import('./components/Marquee'))
-const Pricing        = lazy(() => import('./components/Pricing'))
-const Process        = lazy(() => import('./components/Process'))
-const Comparison     = lazy(() => import('./components/Comparison'))
-const Gallery        = lazy(() => import('./components/Gallery'))
-const ContactForm    = lazy(() => import('./components/ContactForm'))
-const Footer         = lazy(() => import('./components/Footer'))
-const FloatingWhatsApp = lazy(() => import('./components/FloatingWhatsApp'))
+import Marquee from './components/Marquee'
+import Pricing from './components/Pricing'
+import Process from './components/Process'
+import Comparison from './components/Comparison'
+import Gallery from './components/Gallery'
+import ContactForm from './components/ContactForm'
+import Footer from './components/Footer'
+import FloatingWhatsApp from './components/FloatingWhatsApp'
 
 export default function App() {
   const [loaded, setLoaded] = useState(false)
@@ -25,28 +24,22 @@ export default function App() {
           LCP is measured on first paint of h1, not when loader exits. */}
       <div style={{ pointerEvents: loaded ? 'auto' : 'none' }}>
         <div className="grain" aria-hidden="true" />
-        <Suspense fallback={null}>
-          <CursorEffect />
-          <ProgressBar />
-        </Suspense>
+        <CursorEffect />
+        <ProgressBar />
         <Navbar />
 
         <main>
           <Hero />
-          <Suspense fallback={null}>
-            <Marquee />
-            <Pricing />
-            <Process />
-            <Comparison />
-            <Gallery />
-            <ContactForm />
-          </Suspense>
+          <Marquee />
+          <Pricing />
+          <Process />
+          <Comparison />
+          <Gallery />
+          <ContactForm />
         </main>
 
-        <Suspense fallback={null}>
-          <Footer />
-          <FloatingWhatsApp />
-        </Suspense>
+        <Footer />
+        <FloatingWhatsApp />
       </div>
     </>
   )
