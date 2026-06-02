@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import Loader from './components/Loader'
 import CursorEffect from './components/CursorEffect'
 import ProgressBar from './components/ProgressBar'
 import Navbar from './components/Navbar'
@@ -14,35 +12,25 @@ import Footer from './components/Footer'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 
 export default function App() {
-  const [loaded, setLoaded] = useState(false)
-
   return (
     <>
-      <Loader onComplete={() => setLoaded(true)} />
+      <div className="grain" aria-hidden="true" />
+      <CursorEffect />
+      <ProgressBar />
+      <Navbar />
 
-      {loaded && (
-        <>
-          {/* Film grain overlay — site-wide */}
-          <div className="grain" aria-hidden="true" />
+      <main>
+        <Hero />
+        <Marquee />
+        <Pricing />
+        <Process />
+        <Comparison />
+        <Gallery />
+        <ContactForm />
+      </main>
 
-          <CursorEffect />
-          <ProgressBar />
-          <Navbar />
-
-          <main>
-            <Hero />
-            <Marquee />
-            <Pricing />
-            <Process />
-            <Comparison />
-            <Gallery />
-            <ContactForm />
-          </main>
-
-          <Footer />
-          <FloatingWhatsApp />
-        </>
-      )}
+      <Footer />
+      <FloatingWhatsApp />
     </>
   )
 }
