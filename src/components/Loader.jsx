@@ -9,7 +9,7 @@ export default function Loader({ onComplete }) {
 
   useEffect(() => {
     // Logo in: 0.2s, letters finish: ~0.5 + 9*0.09 = ~1.3s, pause then exit
-    const t = setTimeout(() => setVisible(false), 1400)
+    const t = setTimeout(() => setVisible(false), 550)
     return () => clearTimeout(t)
   }, [onComplete])
 
@@ -19,8 +19,8 @@ export default function Loader({ onComplete }) {
         <motion.div
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center select-none"
           style={{ background: '#FAF8F5' }}
-          exit={{ y: '-100%' }}
-          transition={{ duration: 0.82, ease: EASE }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           {/* Ambient radial */}
           <div className="absolute inset-0 pointer-events-none"
@@ -95,7 +95,7 @@ export default function Loader({ onComplete }) {
               style={{ background: '#C9A84C' }}
               initial={{ scaleX: 0, transformOrigin: 'left center' }}
               animate={{ scaleX: 1 }}
-              transition={{ delay: 0.15, duration: 1.1, ease: 'linear' }}
+              transition={{ delay: 0.1, duration: 0.38, ease: 'linear' }}
             />
           </div>
         </motion.div>
