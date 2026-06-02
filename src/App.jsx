@@ -20,29 +20,30 @@ export default function App() {
     <>
       <Loader onComplete={() => setLoaded(true)} />
 
-      {loaded && (
-        <>
-          {/* Film grain overlay — site-wide */}
-          <div className="grain" aria-hidden="true" />
+      {/* Always in DOM so browser finds LCP element immediately */}
+      <div style={{
+        opacity: loaded ? 1 : 0,
+        transition: 'opacity 0.35s ease',
+        pointerEvents: loaded ? 'auto' : 'none',
+      }}>
+        <div className="grain" aria-hidden="true" />
+        <CursorEffect />
+        <ProgressBar />
+        <Navbar />
 
-          <CursorEffect />
-          <ProgressBar />
-          <Navbar />
+        <main>
+          <Hero />
+          <Marquee />
+          <Pricing />
+          <Process />
+          <Comparison />
+          <Gallery />
+          <ContactForm />
+        </main>
 
-          <main>
-            <Hero />
-            <Marquee />
-            <Pricing />
-            <Process />
-            <Comparison />
-            <Gallery />
-            <ContactForm />
-          </main>
-
-          <Footer />
-          <FloatingWhatsApp />
-        </>
-      )}
+        <Footer />
+        <FloatingWhatsApp />
+      </div>
     </>
   )
 }

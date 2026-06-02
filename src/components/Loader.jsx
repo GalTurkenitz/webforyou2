@@ -9,7 +9,7 @@ export default function Loader({ onComplete }) {
 
   useEffect(() => {
     // Logo in: 0.2s, letters finish: ~0.5 + 9*0.09 = ~1.3s, pause then exit
-    const t = setTimeout(() => setVisible(false), 2800)
+    const t = setTimeout(() => setVisible(false), 1400)
     return () => clearTimeout(t)
   }, [onComplete])
 
@@ -95,7 +95,7 @@ export default function Loader({ onComplete }) {
               style={{ background: '#C9A84C' }}
               initial={{ scaleX: 0, transformOrigin: 'left center' }}
               animate={{ scaleX: 1 }}
-              transition={{ delay: 0.15, duration: 2.5, ease: 'linear' }}
+              transition={{ delay: 0.15, duration: 1.1, ease: 'linear' }}
             />
           </div>
         </motion.div>
